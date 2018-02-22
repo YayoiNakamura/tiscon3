@@ -27,26 +27,26 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前　※全角</label>
+                                <label>お名前 <img src="/assets/img/hissu.png" align="center"/>　※全角</label>
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}" placeholder="例）山田　太郎"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
-                                <label>フリガナ　※全角カタカナ</label>
+                                <label>フリガナ <img src="/assets/img/hissu.png" align="center"/>　※全角カタカナ</label>
                                <input type="text" name="kanaName" th:value="${form.kanaName}" placeholder="例）ヤマダ　タロウ"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
-                                <label>お名前（ローマ字）　※半角英字</label>
+                                <label>お名前（ローマ字） <img src="/assets/img/hissu.png" align="center"/>　※半角英字</label>
                                 <input type="text" name="alphabetName" th:value="${form.alphabetName}" placeholder="例）YAMADA TARO"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
-                                <label>性別</label>
+                                <label>性別 <img src="/assets/img/hissu.png" align="center"/></label>
                                 <input type="radio" name="gender" value="male" th:checked="${form.gender}=='male'"/>男性
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
-                                <label>生年月日</label>
-
-                                <select name="select">
+                                <label>生年月日 <img src="/assets/img/hissu.png" align="center"/></label>
+                            <div  style="display:flex; align-items: flex-end;">
+                                <select name="select" style="width: 80px">
                                     <option value="">--</option>
                                     <option value="1900">1900</option>
                                     <option value="1901">1901</option>
@@ -170,8 +170,8 @@
                                     <option value="2019">2019</option>
                                     <option value="2020">2020</option>
                                 </select>
-                                年
-                                <SELECT name="month">
+                                &nbsp;年&ensp;
+                                <SELECT name="month" style="width: 60px">
                                     <option value="">--</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -186,8 +186,8 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                 </SELECT>
-                                月
-                                <SELECT name="day">
+                                &nbsp;月&ensp;
+                                <SELECT name="day" style="width: 60px">
                                     <option value="">--</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -221,29 +221,23 @@
                                     <option value="30">30</option>
                                     <option value="31">31</option>
                                 </select>
-                                日 <br>
-                                <br>
-
-
-
-
-
-
+                                &nbsp;日
+                            </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
-                                <label>郵便番号　※半角数字（ハイフン無し）</label>
+                                <label>郵便番号 <img src="/assets/img/hissu.png" align="center"/>　※半角数字（ハイフン無し）</label>
                                 <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" placeholder="例）1110001"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
-                                <label>ご住所</label>
+                                <label>ご住所 <img src="/assets/img/hissu.png" align="center"/></label>
                                 <input type="text" name="address" th:value="${form.address}" placeholder="例）東京都新宿区西新宿8-17-1"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label>自宅電話番号　※半角数字（ハイフン無し）</label>
+                                <label>自宅電話番号 <img src="/assets/img/izureka.png" align="center"/>　※半角数字（ハイフン無し）</label>
                                 <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}" placeholder="例）0451234567"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
-                                <label>携帯電話番号　※半角数字（ハイフン無し）</label>
+                                <label>携帯電話番号 <img src="/assets/img/izureka.png" align="center"/>　※半角数字（ハイフン無し）</label>
                                 <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}" placeholder="例）09012345678"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
