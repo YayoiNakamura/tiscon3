@@ -32,7 +32,7 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
                                 <label>フリガナ　※全角カタカナ</label>
-                                <input type="text" name="kanaName" th:value="${form.kanaName}" placeholder="例）ヤマダ　タロウ"/>
+                               <input type="text" name="kanaName" th:value="${form.kanaName}" placeholder="例）ヤマダ　タロウ"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label>お名前（ローマ字）　※半角英字</label>
@@ -53,19 +53,19 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所</label>
-                                <input type="text" name="address" th:value="${form.address}"/>
+                                <input type="text" name="address" th:value="${form.address}" placeholder="例）東京都新宿区西新宿8-17-1"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label>自宅電話番号</label>
-                                <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
+                                <label>自宅電話番号　※半角数字（ハイフン無し）</label>
+                                <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}" placeholder="例）0451234567"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
-                                <label>携帯電話番号</label>
-                                <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
+                                <label>携帯電話番号　※半角数字（ハイフン無し）</label>
+                                <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}" placeholder="例）09012345678"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
-                                <label>メールアドレス</label>
-                                <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
+                                <label>メールアドレス　※半角英字</label>
+                                <input type="text" name="emailAddress" th:value="${form.emailAddress}" placeholder="例）tiscon_taro@gmail.com"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
                                 <label>配偶者有無</label>
@@ -88,12 +88,12 @@
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
-                                <label>ローン等のお借り入れ金額</label>
-                                <input type="text" class="number" name="debt" th:value="${form.debt}"/><span class="unit">万円</span>
+                                <label>ローン等のお借り入れ金額　※半角数字</label>
+                                <input type="text" class="number" name="debt" th:value="${form.debt}" placeholder="例）50"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
                                 <label>昨年の所得</label>
-                                <input type="text" class="number" name="income" th:value="${form.income}"/><span class="unit">万円</span>
+                                <input type="text" class="number" name="income" th:value="${form.income}" placeholder="例）500"/><span class="unit">万円</span>
                             </div>
 
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
