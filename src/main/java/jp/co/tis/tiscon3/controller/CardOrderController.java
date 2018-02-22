@@ -54,7 +54,7 @@ public class CardOrderController {
      * @return お勤め先登録ページresponse
      */
 
-    private int syokugyou; //職業分岐用の変数
+    private int syokugyou=1; //職業分岐用の変数
     public HttpResponse inputJob(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
