@@ -44,6 +44,7 @@ public class CardOrderController {
      * @return 本人登録ページresponse
      */
     public HttpResponse inputUser() {
+
         return templateEngine.render("cardOrder/user", "form", new CardOrderForm());
     }
 
@@ -52,11 +53,18 @@ public class CardOrderController {
      *
      * @return お勤め先登録ページresponse
      */
+
+    private int syokugyou; //職業分岐用の変数
     public HttpResponse inputJob(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
 
-        return templateEngine.render("cardOrder/job", "form", form);
+       // CardOrderForm.sub();
+
+        if(syokugyou==1) { //職業の選択で分岐
+            return templateEngine.render("cardOrder/job", "form", form);
+        }
+        return templateEngine.render("cardOrder/completed", "form", form);
     }
 
     /**
