@@ -27,16 +27,16 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前（漢字）</label>
-                                <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                <label>お名前　※全角</label>
+                                <input type="text" name="kanjiName" th:value="${form.kanjiName}" placeholder="例）山田　太郎"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
-                                <label>お名前（カナ）</label>
-                                <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                <label>フリガナ　※全角カタカナ</label>
+                                <input type="text" name="kanaName" th:value="${form.kanaName}" placeholder="例）ヤマダ　タロウ"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
-                                <label>お名前（ローマ字）</label>
-                                <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
+                                <label>お名前（ローマ字）　※半角英字</label>
+                                <input type="text" name="alphabetName" th:value="${form.alphabetName}" placeholder="例）YAMADA TARO"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
                                 <label>性別</label>
@@ -48,8 +48,8 @@
                                 <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
-                                <label>郵便番号</label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <label>郵便番号　※半角数字（ハイフン無し）</label>
+                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" placeholder="例）1110001"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所</label>
