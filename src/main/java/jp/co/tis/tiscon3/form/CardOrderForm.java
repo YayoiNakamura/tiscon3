@@ -9,7 +9,7 @@ public class CardOrderForm extends FormBase {
 
     private static final long serialVersionUID = 1L;
 
-    @NotBlank
+    @NotBlank //からっぽじゃダメ
     @Size(max = 60)
     private String kanjiName;
 
