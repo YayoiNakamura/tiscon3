@@ -27,7 +27,7 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前 <img src="/assets/img/hissu.png" align="center"/>　※全角</label>
+                                <label>お名前 <img src="/assets/img/hissu.png" align="center"/>　※全角　<label th:if="${form.hasErrors('kanjiName')}" th:text="${form.getErrors('kanjiName')}"></label></label>
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}" placeholder="例）山田　太郎"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
