@@ -13,6 +13,8 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import java.util.ArrayList;
+
 import static enkan.util.HttpResponseUtils.RedirectStatusCode.SEE_OTHER;
 import static kotowari.routing.UrlRewriter.redirect;
 
@@ -34,6 +36,8 @@ public class CardOrderController {
 
     private CardOrderDao cardOrderDao;
 
+    private int[] t;
+
     @PostConstruct
     public void init() {
         cardOrderDao = daoProvider.getDao(CardOrderDao.class);
@@ -45,8 +49,11 @@ public class CardOrderController {
      * @return 本人登録ページresponse
      */
     public HttpResponse inputUser() {
-
-        return templateEngine.render("cardOrder/user", "form", new CardOrderForm());
+        ArrayList<String> continentList = new ArrayList<String>();
+        for(int i=0;i<119;i++){
+            continentList.add((1900+i)+"");
+        }
+        return templateEngine.render("cardOrder/user", "form", new CardOrderForm(), "continentList", continentList);
     }
 
     /**
@@ -63,13 +70,17 @@ public class CardOrderController {
         // エラーを出したくないので強制的にエラーを消す.
 
        // CardOrderForm.sub();
+        ArrayList<String> continentList = new ArrayList<String>();
+        for(int i=0;i<119;i++){
+            continentList.add((1900+i)+"");
+        }
         if (form.hasErrors()) {
-            return templateEngine.render("cardOrder/user", "form", form);
+            return templateEngine.render("cardOrder/user", "form", form, "continentList", continentList);
         }
         if(form.getJob().equals("会社員")||form.getJob().equals("経営自営")||form.getJob().equals("契約派遣")||form.getJob().equals("公務員")||form.getJob().equals("民間団体")||form.getJob().equals("他有職")) { //職業の選択で分岐
-            return templateEngine.render("cardOrder/job", "form", form);
+            return templateEngine.render("cardOrder/job", "form", form, "continentList", continentList);
         }
-        return templateEngine.render("cardOrder/completed", "form", form);
+        return templateEngine.render("cardOrder/completed", "form", form, "continentList", continentList);
     }
 
     /**
@@ -80,8 +91,11 @@ public class CardOrderController {
     public HttpResponse modifyUser(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
-
-        return templateEngine.render("cardOrder/user", "form", form);
+        ArrayList<String> continentList = new ArrayList<String>();
+        for(int i=0;i<119;i++){
+            continentList.add((1900+i)+"");
+        }
+        return templateEngine.render("cardOrder/user", "form", form, "continentList", continentList);
     }
 
     /**
@@ -91,8 +105,12 @@ public class CardOrderController {
      */
     @Transactional
     public HttpResponse create(CardOrderForm2 form) {
+        ArrayList<String> continentList = new ArrayList<String>();
+        for(int i=0;i<121;i++){
+            continentList.add((1900+i)+"");
+        }
         if (form.hasErrors()) {
-            return templateEngine.render("cardOrder/job", "form", form);
+            return templateEngine.render("cardOrder/job", "form", form, "continentList", continentList);
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
 
