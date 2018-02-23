@@ -55,13 +55,16 @@ public class CardOrderController {
      */
 
     private int syokugyou=1; //職業分岐用の変数
+    public void  syokugyou(){
+        syokugyou=0;
+    }
     public HttpResponse inputJob(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
 
        // CardOrderForm.sub();
 
-        if(syokugyou==1) { //職業の選択で分岐
+        if(form.getJob().equals("会社員")||form.getJob().equals("経営自営")||form.getJob().equals("契約派遣")||form.getJob().equals("公務員")||form.getJob().equals("民間団体")||form.getJob().equals("他有職")) { //職業の選択で分岐
             return templateEngine.render("cardOrder/job", "form", form);
         }
         return templateEngine.render("cardOrder/completed", "form", form);
