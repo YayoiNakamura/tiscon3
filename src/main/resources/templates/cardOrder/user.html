@@ -41,7 +41,7 @@
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
                                 <label>生年月日 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('year')} or ${form.hasErrors('day')} or ${form.hasErrors('month')}" th:text="必ず入力してください"></label></label>
                             <div  style="display:flex; align-items: flex-end;">
-                                <select name="year" style="width: 80px">
+                                <select name="year" style="width: 100px">
                                     <option value="">--</option>
                                     <option value="1900">1900</option>
                                     <option value="1901">1901</option>
@@ -166,7 +166,7 @@
                                     <option value="2020">2020</option>
                                 </select>
                                 &nbsp;年&ensp;
-                                <SELECT name="month" style="width: 60px">
+                                <SELECT name="month" style="width: 80px">
                                     <option value="">--</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -182,7 +182,7 @@
                                     <option value="12">12</option>
                                 </SELECT>
                                 &nbsp;月&ensp;
-                                <SELECT name="day" style="width: 60px">
+                                <SELECT name="day" style="width: 80px">
                                     <option value="">--</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
