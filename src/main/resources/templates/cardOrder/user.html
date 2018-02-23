@@ -20,26 +20,24 @@
                         <form class="ui form" method="post" action="/cardOrder/user">
 
                             <!-- /*エラーがあれば表示する*/ -->
-                            <ul class="ui red basic label" th:if="${form.hasErrors()}">
-                                <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.value}"></li>
-                            </ul>
+                            
 
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前 <img src="/assets/img/hissu.png" align="center"/>　※全角</label>
+                                <label>お名前 <img src="/assets/img/hissu.png" align="center"/>　※全角　<label th:if="${form.hasErrors('kanjiName')}" th:text="${form.getErrors('kanjiName')}"></label></label>
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}" placeholder="例）山田　太郎"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
-                                <label>フリガナ <img src="/assets/img/hissu.png" align="center"/>　※全角カタカナ</label>
+                                <label>フリガナ <img src="/assets/img/hissu.png" align="center"/>　※全角カタカナ　<label th:if="${form.hasErrors('kanaName')}" th:text="${form.getErrors('kanaName')}"></label></label>
                                <input type="text" name="kanaName" th:value="${form.kanaName}" placeholder="例）ヤマダ　タロウ"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
-                                <label>お名前（ローマ字） <img src="/assets/img/hissu.png" align="center"/>　※半角英字</label>
+                                <label>お名前（ローマ字） <img src="/assets/img/hissu.png" align="center"/>　※半角英字　<label th:if="${form.hasErrors('alphabetName')}" th:text="${form.getErrors('alphabetName')}"></label></label>
                                 <input type="text" name="alphabetName" th:value="${form.alphabetName}" placeholder="例）YAMADA TARO"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
-                                <label>性別 <img src="/assets/img/hissu.png" align="center"/></label>
+                                <label>性別 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('gender')}" th:text="${form.getErrors('gender')}"></label></label>
                                 <input type="radio" name="gender" value="male" th:checked="${form.gender}=='male'"/>男性
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
@@ -225,15 +223,15 @@
                             </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
-                                <label>郵便番号 <img src="/assets/img/hissu.png" align="center"/>　※半角数字（ハイフン無し）</label>
+                                <label>郵便番号 <img src="/assets/img/hissu.png" align="center"/>　※半角数字（ハイフン無し）　<label th:if="${form.hasErrors('zipCode')}" th:text="${form.getErrors('zipCode')}"></label></label>
                                 <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" placeholder="例）1110001"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
-                                <label>ご住所 <img src="/assets/img/hissu.png" align="center"/></label>
+                                <label>ご住所 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('address')}" th:text="${form.getErrors('address')}"></label></label>
                                 <input type="text" name="address" th:value="${form.address}" placeholder="例）東京都新宿区西新宿8-17-1"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label>自宅電話番号 <img src="/assets/img/hissu.png" align="center"/>　※半角数字（ハイフン無し）</label>
+                                <label>自宅電話番号 <img src="/assets/img/hissu.png" align="center"/>　※半角数字（ハイフン無し）　<label th:if="${form.hasErrors('homePhoneNumber')}" th:text="${form.getErrors('homePhoneNumber')}"></label></label>
                                 <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}" placeholder="例）0451234567"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
@@ -241,16 +239,16 @@
                                 <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}" placeholder="例）09012345678"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
-                                <label>メールアドレス <img src="/assets/img/hissu.png" align="center"/>　※半角英数字</label>
+                                <label>メールアドレス <img src="/assets/img/hissu.png" align="center"/>　※半角英数字　<label th:if="${form.hasErrors('emailAddress')}" th:text="${form.getErrors('emailAddress')}"></label></label>
                                 <input type="text" name="emailAddress" th:value="${form.emailAddress}" placeholder="例）tiscon_taro@gmail.com"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
-                                <label>配偶者有無 <img src="/assets/img/hissu.png" align="center"/></label>
+                                <label>配偶者有無 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('spouse')}" th:text="${form.getErrors('spouse')}"></label></label>
                                 <input type="radio" name="spouse" value="1" th:checked="${form.spouse}=='1'"/>配偶者あり
                                 <input type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>配偶者なし
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('houseClassification')} ? 'error'">
-                                <label>お住まい <img src="/assets/img/hissu.png" align="center"/></label>
+                                <label>お住まい <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('houseClassification')}" th:text="${form.getErrors('houseClassification')}"></label></label>
 
                                 <select name="houseClassification">
                                     <option value="">--</option>
@@ -266,17 +264,17 @@
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
-                                <label>ローン等のお借り入れ金額 <img src="/assets/img/hissu.png" align="center"/>　※半角数字</label>
+                                <label>ローン等のお借り入れ金額 <img src="/assets/img/hissu.png" align="center"/>　※半角数字　<label th:if="${form.hasErrors('debt')}" th:text="${form.getErrors('debt')}"></label></label>
                                 <input type="text" class="number" name="debt" th:value="${form.debt}" placeholder="例）50"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
-                                <label>昨年の所得 <img src="/assets/img/hissu.png" align="center"/>　※半角数字</label>
+                                <label>昨年の所得 <img src="/assets/img/hissu.png" align="center"/>　※半角数字　<label th:if="${form.hasErrors('income')}" th:text="${form.getErrors('income')}"></label></label>
                                 <input type="text" class="number" name="income" th:value="${form.income}" placeholder="例）500"/><span class="unit">万円</span>
                             </div>
 
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
 
-                            <label>ご職業 <img src="/assets/img/hissu.png" align="center"/></label>
+                            <label>ご職業 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('job')}" th:text="${form.getErrors('job')}"></label></label>
                                 <select name="job">
                                     <option value="">--</option>
                                     <option value="経営自営" >経営・自営業</option>
