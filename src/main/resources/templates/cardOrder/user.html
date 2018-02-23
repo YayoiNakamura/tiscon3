@@ -39,7 +39,7 @@
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
-                                <label>生年月日 <img src="/assets/img/hissu.png" align="center"/></label>
+                                <label>生年月日 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('year')} or ${form.hasErrors('day')} or ${form.hasErrors('month')}" th:text="必ず入力してください"></label></label>
                             <div  style="display:flex; align-items: flex-end;">
                                 <select name="year" style="width: 80px">
                                     <option value="">--</option>
