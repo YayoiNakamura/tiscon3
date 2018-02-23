@@ -46,7 +46,7 @@
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
                                 <label>生年月日 <img src="/assets/img/hissu.png" align="center"/></label>
                             <div  style="display:flex; align-items: flex-end;">
-                                <select name="select" style="width: 80px">
+                                <select name="year" style="width: 80px">
                                     <option value="">--</option>
                                     <option value="1900">1900</option>
                                     <option value="1901">1901</option>
@@ -252,7 +252,7 @@
                             <div class="field" th:classappend="${form.hasErrors('houseClassification')} ? 'error'">
                                 <label>お住まい <img src="/assets/img/hissu.png" align="center"/></label>
 
-                                <select name="sumai">
+                                <select name="houseClassification">
                                     <option value="">--</option>
                                     <option value="自己所有" >本人名義の一戸建・マンション</option>
                                     <option value="家族所有" >家族名義の一戸建て・マンション</option>
@@ -277,7 +277,7 @@
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
 
                             <label>ご職業 <img src="/assets/img/hissu.png" align="center"/></label>
-                                <select name="syoku">
+                                <select name="job">
                                     <option value="">--</option>
                                     <option value="経営自営" >経営・自営業</option>
                                     <option  value="会社員" >会社員</option>
