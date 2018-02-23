@@ -145,7 +145,7 @@
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
-                                <label>ローン等のお借り入れ金額 <img src="/assets/imgその他/hissu.png" align="center"/>　※半角数字　<label th:if="${form.hasErrors('debt')}" th:text="${form.getErrors('debt')}"></label></label>
+                                <label>ローン等のお借り入れ金額 <img src="/assets/img/hissu.png" align="center"/>　※半角数字　<label th:if="${form.hasErrors('debt')}" th:text="${form.getErrors('debt')}"></label></label>
                                 <input type="text" class="number" name="debt" th:value="${form.debt}" placeholder="例）50"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
