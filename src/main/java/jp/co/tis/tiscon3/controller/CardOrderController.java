@@ -6,6 +6,7 @@ import enkan.data.HttpResponse;
 import jp.co.tis.tiscon3.dao.CardOrderDao;
 import jp.co.tis.tiscon3.entity.CardOrder;
 import jp.co.tis.tiscon3.form.CardOrderForm;
+import jp.co.tis.tiscon3.form.CardOrderForm2;
 import kotowari.component.TemplateEngine;
 
 import javax.annotation.PostConstruct;
@@ -60,10 +61,11 @@ public class CardOrderController {
     }
     public HttpResponse inputJob(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
-        form.setErrors(null);
 
        // CardOrderForm.sub();
-
+        if (form.hasErrors()) {
+            return templateEngine.render("cardOrder/user", "form", form);
+        }
         if(form.getJob().equals("会社員")||form.getJob().equals("経営自営")||form.getJob().equals("契約派遣")||form.getJob().equals("公務員")||form.getJob().equals("民間団体")||form.getJob().equals("他有職")) { //職業の選択で分岐
             return templateEngine.render("cardOrder/job", "form", form);
         }
@@ -88,9 +90,9 @@ public class CardOrderController {
      * @return 完了ページへのリダイレクトresponse
      */
     @Transactional
-    public HttpResponse create(CardOrderForm form) {
+    public HttpResponse create(CardOrderForm2 form) {
         if (form.hasErrors()) {
-            return templateEngine.render("cardOrder/user", "form", form);
+            return templateEngine.render("cardOrder/job", "form", form);
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
 
