@@ -19,11 +19,6 @@
 
                         <form class="ui form" method="post" action="/cardOrder/user">
 
-                            <!-- /*エラーがあれば表示する*/ -->
-                            <ul class="ui red basic label" th:if="${form.hasErrors()}">
-                                <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.value}"></li>
-                            </ul>
-
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
@@ -277,7 +272,7 @@
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
 
                             <label>ご職業 <img src="/assets/img/hissu.png" align="center"/>　<label th:if="${form.hasErrors('job')}" th:text="${form.getErrors('job')}"></label></label>
-                                <select name="job" th:field="*{job}">
+                                <select name="job" id="job" th:field="*{job}">
                                     <option value="">--</option>
                                     <option value="経営自営" >経営・自営業</option>
                                     <option  value="会社員" >会社員</option>
