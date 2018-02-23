@@ -249,19 +249,19 @@
 
                                 <select name="houseClassification">
                                     <option value="">--</option>
-                                    <option value="自己所有" >本人名義の一戸建・マンション</option>
-                                    <option value="家族所有" >家族名義の一戸建て・マンション</option>
-                                    <option value="社宅">社宅</option>
-                                    <option value="公営">公営住宅</option>
-                                    <option value="賃貸">賃貸マンション</option>
-                                    <option value="借家">借家</option>
-                                    <option value="アパート">アパート</option>
-                                    <option value="寮下宿">寮・下宿</option>
-                                    <option value="その他">その他</option>
+                                    <option value="自己所有" th:selected="${form.houseClassification}=='自己所有'" >本人名義の一戸建・マンション</option>
+                                    <option value="家族所有" th:selected="${form.houseClassification}=='家族所有'" >家族名義の一戸建て・マンション</option>
+                                    <option value="社宅" th:selected="${form.houseClassification}=='社宅'">社宅</option>
+                                    <option value="公営住宅" th:selected="${form.houseClassification}=='公営住宅'">公営住宅</option>
+                                    <option value="賃貸" th:selected="${form.houseClassification}=='賃貸'">賃貸マンション</option>
+                                    <option value="借家" th:selected="${form.houseClassification}=='借家'">借家</option>
+                                    <option value="アパート" th:selected="${form.houseClassification}=='アパート'">アパート</option>
+                                    <option value="寮下宿" th:selected="${form.houseClassification}=='寮下宿'">寮・下宿</option>
+                                    <option value="その他" th:selected="${form.houseClassification}=='その他'">その他</option>
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
-                                <label>ローン等のお借り入れ金額 <img src="/assets/img/hissu.png" align="center"/>　※半角数字　<label th:if="${form.hasErrors('debt')}" th:text="${form.getErrors('debt')}"></label></label>
+                                <label>ローン等のお借り入れ金額 <img src="/assets/imgその他/hissu.png" align="center"/>　※半角数字　<label th:if="${form.hasErrors('debt')}" th:text="${form.getErrors('debt')}"></label></label>
                                 <input type="text" class="number" name="debt" th:value="${form.debt}" placeholder="例）50"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
