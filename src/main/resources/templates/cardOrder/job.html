@@ -75,12 +75,12 @@
 
                                 <select name="companySize">
                                     <option value="">--</option>
-                                    <option value="9">１０名未満</option>
-                                    <option value="29">１０名以上３０名未満</option>
-                                    <option value="49">３０名以上５０名未満</option>
-                                    <option value="99">５０名以上１００名未満</option>
-                                    <option value="499">１００名以上５００名未満</option>
-                                    <option value="500">５００名以上</option>
+                                    <option value="9" th:selected="${form.companySize}=='9'">１０名未満</option>
+                                    <option value="29" th:selected="${form.companySize}=='29'">１０名以上３０名未満</option>
+                                    <option value="49" th:selected="${form.companySize}=='49'">３０名以上５０名未満</option>
+                                    <option value="99" th:selected="${form.companySize}=='99'">５０名以上１００名未満</option>
+                                    <option value="499" th:selected="${form.companySize}=='499'">１００名以上５００名未満</option>
+                                    <option value="500" th:selected="${form.companySize}=='500'">５００名以上</option>
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('department')} ? 'error'">
